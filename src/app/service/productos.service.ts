@@ -10,7 +10,7 @@ import { Category } from '../models/Categoria.models';
 })
 export class ProductosService {
 
-  url: string = 'http://localhost:3000/api/v1/';
+  url: string = 'http://192.168.101.94:3000/api/v1/';
   constructor(private http: HttpClient) { }
 
   listarProdcutos() {
@@ -38,7 +38,7 @@ export class ProductosService {
   }
 
   eliminarProducto(id: number) {
-    return this.http.delete(`${this.url}/product/${id}`)
+    return this.http.delete(`${this.url}product/${id}`)
   }
 
 }

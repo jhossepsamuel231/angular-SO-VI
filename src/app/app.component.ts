@@ -4,6 +4,7 @@ import { ICategoria } from './interface/Categoria.interface';
 import { Producto } from './models/Producto.models';
 import { ProductosService } from './service/productos.service';
 import { Category } from './models/Categoria.models';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -92,8 +93,19 @@ export class AppComponent {
 
   }
 
-  eliminarProducto() {
-
+  eliminarProducto(id: number) {
+    this.productService.eliminarProducto(id).subscribe({
+      next: (resp: any) => {
+        Swal.fire({
+          title: "Eliminado!",
+          text: "Producto eliminado correctamente!",
+          icon: "success"
+        });
+        this.listarProducto();
+      }, error: (err: any) => {
+        console.log(err);
+      }
+    })
   }
 
   abrirModal(tipo: string) {

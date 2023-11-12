@@ -27,7 +27,7 @@
         <td>{{productos.estado ? 'Activo': 'Desactivo'}}</td>
         <td>
           <button (click)="editarProducto(productos.id)">Editar</button>
-          <button (click)="eliminarProducto()">Eliminar</button>
+          <button (click)="eliminarProducto(productos.id)">Eliminar</button>
         </td>
       </tr>
     </tbody>
